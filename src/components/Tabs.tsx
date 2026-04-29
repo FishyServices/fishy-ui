@@ -6,12 +6,15 @@ const Tabs = BaseTabs.Root;
 
 const TabsList = React.forwardRef<
   HTMLDivElement,
-  React.ComponentPropsWithoutRef<typeof BaseTabs.List>
->(({ className, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof BaseTabs.List> & {
+    variant?: "default" | "line";
+  }
+>(({ className, variant = "default", ...props }, ref) => (
   <BaseTabs.List
     ref={ref}
     className={cn(
-      "inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground",
+      variant === "default" && "inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground",
+      variant === "line" && "inline-flex h-11 items-center justify-start gap-6 border-b border-white/10 bg-transparent p-0 text-muted-foreground",
       className
     )}
     {...props}
@@ -26,7 +29,7 @@ const TabsTrigger = React.forwardRef<
   <BaseTabs.Tab
     ref={ref}
     className={cn(
-      "inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow",
+      "inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-selected:bg-background data-selected:text-foreground data-selected:shadow",
       className
     )}
     {...props}

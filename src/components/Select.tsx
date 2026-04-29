@@ -3,106 +3,142 @@ import { Select as BaseSelect } from "@base-ui/react";
 import { Check, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const Select = BaseSelect.Root;
-const SelectGroup = BaseSelect.Group;
-const SelectValue = BaseSelect.Value;
+const SelectContext = React.createContext<{ items?: any }>({});
 
-const SelectTrigger = React.forwardRef<
-  HTMLButtonElement,
-  React.ComponentPropsWithoutRef<typeof BaseSelect.Trigger>
->(({ className, children, ...props }, ref) => (
-  <BaseSelect.Trigger
-    ref={ref}
-    className={cn(
-      "flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
-      className
-    )}
-    {...props}
-  >
-    {children}
-    <BaseSelect.Icon>
-      <ChevronDown className="h-4 w-4 opacity-50" />
-    </BaseSelect.Icon>
-  </BaseSelect.Trigger>
-));
-SelectTrigger.displayName = "SelectTrigger";
+function Select({ items, ...props }: React.ComponentPropsWithoutRef<typeof BaseSelect.Root>) {
+  return (
+    <SelectContext.Provider value={{ items }}>
+      <BaseSelect.Root items={items} data-slot="select" {...props} />
+    </SelectContext.Provider>
+  );
+}
 
-const SelectContent = React.forwardRef<
-  HTMLDivElement,
-  React.ComponentPropsWithoutRef<typeof BaseSelect.Popup>
->(({ className, children, ...props }, ref) => (
-  <BaseSelect.Portal>
-    <BaseSelect.Popup
-      ref={ref}
+function SelectGroup({ ...props }: React.ComponentPropsWithoutRef<typeof BaseSelect.Group>) {
+  return <BaseSelect.Group data-slot="select-group" {...props} />;
+}
+
+function SelectValue({ ...props }: React.ComponentPropsWithoutRef<typeof BaseSelect.Value>) {
+  return <BaseSelect.Value data-slot="select-value" {...props} />;
+}
+
+function SelectTrigger({
+  className,
+  size = "default",
+  children,
+  ...props
+}: React.ComponentPropsWithoutRef<typeof BaseSelect.Trigger> & {
+  size?: "sm" | "default";
+}) {
+  return (
+    <BaseSelect.Trigger
+      data-slot="select-trigger"
+      data-size={size}
       className={cn(
-        "z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+        "border-input data-placeholder:text-muted-foreground [&_svg:not([class*='text-'])]:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 dark:hover:bg-input/50 flex w-fit items-center justify-between gap-2 rounded-md border bg-transparent px-3 py-2 text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-9 data-[size=sm]:h-8 *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}
     >
-      <BaseSelect.Positioner>
-        <div className="p-1">
+      {children}
+      <BaseSelect.Icon>
+        <ChevronDown className="size-4 opacity-50" />
+      </BaseSelect.Icon>
+    </BaseSelect.Trigger>
+  );
+}
+
+function SelectContent({
+  className,
+  children,
+  ...props
+}: React.ComponentPropsWithoutRef<typeof BaseSelect.Popup>) {
+  return (
+    <BaseSelect.Portal>
+      <BaseSelect.Positioner className="z-50">
+        <BaseSelect.Popup
+          data-slot="select-content"
+          className={cn(
+            "bg-popover text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative max-h-96 min-w-[8rem] overflow-x-hidden overflow-y-auto rounded-md border p-1 shadow-md",
+            className
+          )}
+          {...props}
+        >
           {children}
-        </div>
+        </BaseSelect.Popup>
       </BaseSelect.Positioner>
-    </BaseSelect.Popup>
-  </BaseSelect.Portal>
-));
-SelectContent.displayName = "SelectContent";
+    </BaseSelect.Portal>
+  );
+}
 
-const SelectLabel = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("px-2 py-1.5 text-sm font-semibold", className)}
-    {...props}
-  />
-));
-SelectLabel.displayName = "SelectLabel";
+function SelectLabel({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div
+      data-slot="select-label"
+      className={cn("text-muted-foreground px-2 py-1.5 text-xs font-semibold", className)}
+      {...props}
+    />
+  );
+}
 
-const SelectItem = React.forwardRef<
-  HTMLDivElement,
-  React.ComponentPropsWithoutRef<typeof BaseSelect.Item>
->(({ className, children, ...props }, ref) => (
-  <BaseSelect.Item
-    ref={ref}
-    className={cn(
-      "relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-2 pr-8 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
-      className
-    )}
-    {...props}
-  >
-    <span className="absolute right-2 flex h-3.5 w-3.5 items-center justify-center">
-      <BaseSelect.ItemIndicator>
-        <Check className="h-4 w-4" />
-      </BaseSelect.ItemIndicator>
-    </span>
-    <BaseSelect.ItemText>{children}</BaseSelect.ItemText>
-  </BaseSelect.Item>
-));
-SelectItem.displayName = "SelectItem";
+function SelectItem({
+  className,
+  children,
+  ...props
+}: React.ComponentPropsWithoutRef<typeof BaseSelect.Item>) {
+  const getLabelFromChildren = (children: React.ReactNode): string | undefined => {
+    if (typeof children === "string") return children;
+    if (typeof children === "number") return String(children);
+    if (Array.isArray(children)) {
+      return children
+        .map(child => getLabelFromChildren(child))
+        .filter(Boolean)
+        .join("");
+    }
+    return undefined;
+  };
 
-const SelectSeparator = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("-mx-1 my-1 h-[1px] bg-muted", className)}
-    {...props}
-  />
-));
-SelectSeparator.displayName = "SelectSeparator";
+  const labelText = getLabelFromChildren(children);
+
+  return (
+    <BaseSelect.Item
+      data-slot="select-item"
+      label={labelText}
+      className={cn(
+        "focus:bg-accent focus:text-accent-foreground [&_svg:not([class*='text-'])]:text-muted-foreground relative flex w-full cursor-default items-center gap-2 rounded-sm py-1.5 pr-8 pl-2 text-sm outline-hidden select-none data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2",
+        className
+      )}
+      {...props}
+    >
+      <span className="absolute right-2 flex size-3.5 items-center justify-center">
+        <BaseSelect.ItemIndicator>
+          <Check className="size-4" />
+        </BaseSelect.ItemIndicator>
+      </span>
+      <BaseSelect.ItemText>{children}</BaseSelect.ItemText>
+    </BaseSelect.Item>
+  );
+}
+
+function SelectSeparator({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div
+      data-slot="select-separator"
+      className={cn("bg-border pointer-events-none -mx-1 my-1 h-px", className)}
+      {...props}
+    />
+  );
+}
 
 export {
   Select,
-  SelectGroup,
-  SelectValue,
-  SelectTrigger,
   SelectContent,
-  SelectLabel,
+  SelectGroup,
   SelectItem,
+  SelectLabel,
   SelectSeparator,
+  SelectTrigger,
+  SelectValue
 };
