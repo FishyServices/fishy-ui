@@ -5,7 +5,13 @@ import { cn } from "@/lib/utils";
 
 const SelectContext = React.createContext<{ items?: any }>({});
 
-function Select({ items, ...props }: React.ComponentPropsWithoutRef<typeof BaseSelect.Root>) {
+function Select<Value = any, Multiple extends boolean | undefined = false>({
+  items,
+  ...props
+}: Omit<BaseSelect.Root.Props<Value, Multiple>, "onValueChange"> & { 
+  items?: any;
+  onValueChange?: (value: any, details: any) => void;
+}) {
   return (
     <SelectContext.Provider value={{ items }}>
       <BaseSelect.Root items={items} data-slot="select" {...props} />
@@ -13,12 +19,27 @@ function Select({ items, ...props }: React.ComponentPropsWithoutRef<typeof BaseS
   );
 }
 
-function SelectGroup({ ...props }: React.ComponentPropsWithoutRef<typeof BaseSelect.Group>) {
+function SelectGroup({ ...props }: BaseSelect.Group.Props) {
   return <BaseSelect.Group data-slot="select-group" {...props} />;
 }
 
-function SelectValue({ ...props }: React.ComponentPropsWithoutRef<typeof BaseSelect.Value>) {
-  return <BaseSelect.Value data-slot="select-value" {...props} />;
+function SelectValue({ children, ...props }: BaseSelect.Value.Props) {
+  const { items } = React.useContext(SelectContext);
+
+  return (
+    <BaseSelect.Value data-slot="select-value" {...props}>
+      {(value: any) => {
+        if (value === null || value === undefined || value === "") {
+          return props.placeholder;
+        }
+
+        const itemsArray = Array.isArray(items) ? items : [];
+        const item = itemsArray.find((i: any) => i.value === value);
+
+        return item?.label ?? value;
+      }}
+    </BaseSelect.Value>
+  );
 }
 
 function SelectTrigger({
@@ -26,7 +47,7 @@ function SelectTrigger({
   size = "default",
   children,
   ...props
-}: React.ComponentPropsWithoutRef<typeof BaseSelect.Trigger> & {
+}: BaseSelect.Trigger.Props & {
   size?: "sm" | "default";
 }) {
   return (
@@ -51,7 +72,7 @@ function SelectContent({
   className,
   children,
   ...props
-}: React.ComponentPropsWithoutRef<typeof BaseSelect.Popup>) {
+}: BaseSelect.Popup.Props) {
   return (
     <BaseSelect.Portal>
       <BaseSelect.Positioner className="z-50">
@@ -84,7 +105,7 @@ function SelectItem({
   className,
   children,
   ...props
-}: React.ComponentPropsWithoutRef<typeof BaseSelect.Item>) {
+}: BaseSelect.Item.Props) {
   const getLabelFromChildren = (children: React.ReactNode): string | undefined => {
     if (typeof children === "string") return children;
     if (typeof children === "number") return String(children);

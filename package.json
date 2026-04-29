@@ -15,8 +15,7 @@
   },
   "scripts": {
     "build": "tsc && tailwindcss -i src/index.css -o dist/styles.css",
-    "dev": "concurrently \"tsc -w\" \"tailwindcss -i src/index.css -o dist/styles.css --watch\"",
-    "prepare": "npm run build"
+    "dev": "concurrently \"tsc -w\" \"tailwindcss -i src/index.css -o dist/styles.css --watch\""
   },
   "peerDependencies": {
     "react": "^19",
