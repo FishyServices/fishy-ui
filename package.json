@@ -15,7 +15,8 @@
   },
   "scripts": {
     "build": "tsc && tailwindcss -i src/index.css -o dist/styles.css",
-    "dev": "concurrently \"tsc -w\" \"tailwindcss -i src/index.css -o dist/styles.css --watch\""
+    "dev": "concurrently \"tsc -w\" \"tailwindcss -i src/index.css -o dist/styles.css --watch\"",
+    "prepare": "npm run build"
   },
   "peerDependencies": {
     "react": "^19",
@@ -27,7 +28,6 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "concurrently": "^9.2.1",
-    "lucide-react": "^1.8.0",
     "tailwindcss": "^4.2.2",
     "typescript": "~6.0.2"
   },
@@ -36,6 +36,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
+    "lucide-react": "^0.479.0",
     "next-themes": "^0.4.6",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.5.0"
