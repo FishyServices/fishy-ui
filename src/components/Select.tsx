@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Select as BaseSelect } from "@base-ui/react";
-import { Check, ChevronDown, ChevronUp } from "lucide-react";
+import { Check, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Select = BaseSelect.Root;
@@ -20,7 +20,7 @@ const SelectTrigger = React.forwardRef<
     {...props}
   >
     {children}
-    <BaseSelect.Icon asChild>
+    <BaseSelect.Icon>
       <ChevronDown className="h-4 w-4 opacity-50" />
     </BaseSelect.Icon>
   </BaseSelect.Trigger>
@@ -30,7 +30,7 @@ SelectTrigger.displayName = "SelectTrigger";
 const SelectContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<typeof BaseSelect.Popup>
->(({ className, children, position = "popper", ...props }, ref) => (
+>(({ className, children, ...props }, ref) => (
   <BaseSelect.Portal>
     <BaseSelect.Popup
       ref={ref}
@@ -106,4 +106,3 @@ export {
   SelectItem,
   SelectSeparator,
 };
-

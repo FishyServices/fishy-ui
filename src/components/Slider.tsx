@@ -3,7 +3,7 @@ import { Slider as BaseSlider } from "@base-ui/react";
 import { cn } from "@/lib/utils";
 
 const Slider = React.forwardRef<
-  HTMLSpanElement,
+  HTMLDivElement,
   React.ComponentPropsWithoutRef<typeof BaseSlider.Root>
 >(({ className, ...props }, ref) => (
   <BaseSlider.Root

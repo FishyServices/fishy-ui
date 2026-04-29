@@ -7,15 +7,15 @@ const DropdownMenu = BaseMenu.Root;
 const DropdownMenuTrigger = BaseMenu.Trigger;
 const DropdownMenuGroup = BaseMenu.Group;
 const DropdownMenuPortal = BaseMenu.Portal;
-const DropdownMenuSub = BaseMenu.Submenu;
+const DropdownMenuSub = BaseMenu.Root; 
 
 const DropdownMenuSubTrigger = React.forwardRef<
-  HTMLDivElement,
-  React.ComponentPropsWithoutRef<typeof BaseMenu.SubmenuTrigger> & {
+  HTMLButtonElement,
+  React.ComponentPropsWithoutRef<typeof BaseMenu.Trigger> & {
     inset?: boolean;
   }
 >(({ className, inset, children, ...props }, ref) => (
-  <BaseMenu.SubmenuTrigger
+  <BaseMenu.Trigger
     ref={ref}
     className={cn(
       "flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent data-[state=open]:bg-accent",
@@ -26,7 +26,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
   >
     {children}
     <ChevronRight className="ml-auto h-4 w-4" />
-  </BaseMenu.SubmenuTrigger>
+  </BaseMenu.Trigger>
 ));
 DropdownMenuSubTrigger.displayName = "DropdownMenuSubTrigger";
 
@@ -48,7 +48,7 @@ DropdownMenuSubContent.displayName = "DropdownMenuSubContent";
 const DropdownMenuContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<typeof BaseMenu.Popup>
->(({ className, sideOffset = 4, ...props }, ref) => (
+>(({ className, ...props }, ref) => (
   <BaseMenu.Portal>
     <BaseMenu.Popup
       ref={ref}
@@ -94,9 +94,9 @@ const DropdownMenuCheckboxItem = React.forwardRef<
     {...props}
   >
     <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
-      <BaseMenu.ItemIndicator>
+      <BaseMenu.CheckboxItemIndicator>
         <Check className="h-4 w-4" />
-      </BaseMenu.ItemIndicator>
+      </BaseMenu.CheckboxItemIndicator>
     </span>
     {children}
   </BaseMenu.CheckboxItem>
@@ -116,9 +116,9 @@ const DropdownMenuRadioItem = React.forwardRef<
     {...props}
   >
     <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
-      <BaseMenu.ItemIndicator>
+      <BaseMenu.RadioItemIndicator>
         <Circle className="h-2 w-2 fill-current" />
-      </BaseMenu.ItemIndicator>
+      </BaseMenu.RadioItemIndicator>
     </span>
     {children}
   </BaseMenu.RadioItem>
@@ -170,4 +170,3 @@ export {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
 };
-

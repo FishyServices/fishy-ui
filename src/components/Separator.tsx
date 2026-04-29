@@ -4,9 +4,9 @@ import { cn } from "@/lib/utils";
 
 const Separator = React.forwardRef<
   HTMLDivElement,
-  React.ComponentPropsWithoutRef<typeof BaseSeparator.Root>
+  React.ComponentPropsWithoutRef<typeof BaseSeparator>
 >(({ className, ...props }, ref) => (
-  <BaseSeparator.Root
+  <BaseSeparator
     ref={ref}
     className={cn(
       "shrink-0 bg-border data-[orientation=horizontal]:h-[1px] data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-[1px]",

@@ -9,7 +9,7 @@ const TooltipTrigger = BaseTooltip.Trigger;
 const TooltipContent = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<typeof BaseTooltip.Popup>
->(({ className, sideOffset = 4, ...props }, ref) => (
+>(({ className, ...props }, ref) => (
   <BaseTooltip.Portal>
     <BaseTooltip.Popup
       ref={ref}
@@ -24,4 +24,3 @@ const TooltipContent = React.forwardRef<
 TooltipContent.displayName = "TooltipContent";
 
 export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider };
-
