@@ -26,6 +26,18 @@ function SelectGroup({ ...props }: BaseSelect.Group.Props) {
 function SelectValue({ children, ...props }: BaseSelect.Value.Props) {
   const { items } = React.useContext(SelectContext);
 
+  if (children !== undefined) {
+    return (
+      <BaseSelect.Value data-slot="select-value" {...props}>
+        {children}
+      </BaseSelect.Value>
+    );
+  }
+
+  if (!Array.isArray(items) || items.length === 0) {
+    return <BaseSelect.Value data-slot="select-value" {...props} />;
+  }
+
   return (
     <BaseSelect.Value data-slot="select-value" {...props}>
       {(value: any) => {
@@ -33,8 +45,7 @@ function SelectValue({ children, ...props }: BaseSelect.Value.Props) {
           return props.placeholder;
         }
 
-        const itemsArray = Array.isArray(items) ? items : [];
-        const item = itemsArray.find((i: any) => i.value === value);
+        const item = items.find((i: any) => i.value === value);
 
         return item?.label ?? value;
       }}

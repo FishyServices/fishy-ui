@@ -12,12 +12,17 @@ function SelectGroup({ ...props }) {
 }
 function SelectValue({ children, ...props }) {
     const { items } = React.useContext(SelectContext);
+    if (children !== undefined) {
+        return (_jsx(BaseSelect.Value, { "data-slot": "select-value", ...props, children: children }));
+    }
+    if (!Array.isArray(items) || items.length === 0) {
+        return _jsx(BaseSelect.Value, { "data-slot": "select-value", ...props });
+    }
     return (_jsx(BaseSelect.Value, { "data-slot": "select-value", ...props, children: (value) => {
             if (value === null || value === undefined || value === "") {
                 return props.placeholder;
             }
-            const itemsArray = Array.isArray(items) ? items : [];
-            const item = itemsArray.find((i) => i.value === value);
+            const item = items.find((i) => i.value === value);
             return item?.label ?? value;
         } }));
 }
