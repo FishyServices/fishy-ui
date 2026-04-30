@@ -2,7 +2,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import * as React from "react";
 import { Menu as BaseMenu } from "@base-ui/react";
 import { Check, ChevronRight, Circle } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "../lib/utils";
 const DropdownMenu = BaseMenu.Root;
 const DropdownMenuTrigger = BaseMenu.Trigger;
 const DropdownMenuGroup = BaseMenu.Group;

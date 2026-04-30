@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Checkbox as BaseCheckbox } from "@base-ui/react";
 import { Check } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "../lib/utils";
 
 const Checkbox = React.forwardRef<
   HTMLButtonElement,
@@ -25,4 +25,3 @@ const Checkbox = React.forwardRef<
 Checkbox.displayName = "Checkbox";
 
 export { Checkbox };
-

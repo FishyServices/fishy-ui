@@ -1,7 +1,7 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import * as React from "react";
 import { Tooltip as BaseTooltip } from "@base-ui/react";
-import { cn } from "@/lib/utils";
+import { cn } from "../lib/utils";
 const TooltipProvider = BaseTooltip.Provider;
 const Tooltip = BaseTooltip.Root;
 const TooltipTrigger = BaseTooltip.Trigger;

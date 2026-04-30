@@ -3,7 +3,7 @@ import * as React from "react";
 import { Dialog as BaseDialog } from "@base-ui/react";
 import { cva } from "class-variance-authority";
 import { X } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "../lib/utils";
 const Sheet = BaseDialog.Root;
 const SheetTrigger = BaseDialog.Trigger;
 const SheetClose = BaseDialog.Close;

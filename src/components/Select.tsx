@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Select as BaseSelect } from "@base-ui/react";
 import { Check, ChevronDown } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "../lib/utils";
 
 const SelectContext = React.createContext<{ items?: any }>({});
 

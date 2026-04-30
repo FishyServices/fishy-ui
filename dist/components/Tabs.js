@@ -1,7 +1,7 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import * as React from "react";
 import { Tabs as BaseTabs } from "@base-ui/react";
-import { cn } from "@/lib/utils";
+import { cn } from "../lib/utils";
 const Tabs = BaseTabs.Root;
 const TabsList = React.forwardRef(({ className, variant = "default", ...props }, ref) => (_jsx(BaseTabs.List, { ref: ref, className: cn(variant === "default" && "inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground", variant === "line" && "inline-flex h-11 items-center justify-start gap-6 border-b border-white/10 bg-transparent p-0 text-muted-foreground", className), ...props })));
 TabsList.displayName = "TabsList";

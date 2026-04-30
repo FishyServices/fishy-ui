@@ -2,7 +2,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import * as React from "react";
 import { Dialog as BaseDialog } from "@base-ui/react";
 import { X } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "../lib/utils";
 const Dialog = BaseDialog.Root;
 const DialogTrigger = BaseDialog.Trigger;
 const DialogPortal = BaseDialog.Portal;

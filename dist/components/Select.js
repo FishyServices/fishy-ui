@@ -2,7 +2,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import * as React from "react";
 import { Select as BaseSelect } from "@base-ui/react";
 import { Check, ChevronDown } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "../lib/utils";
 const SelectContext = React.createContext({});
 function Select({ items, ...props }) {
     return (_jsx(SelectContext.Provider, { value: { items }, children: _jsx(BaseSelect.Root, { items: items, "data-slot": "select", ...props }) }));

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Slider as BaseSlider } from "@base-ui/react";
-import { cn } from "@/lib/utils";
+import { cn } from "../lib/utils";
 
 const Slider = React.forwardRef<
   HTMLDivElement,

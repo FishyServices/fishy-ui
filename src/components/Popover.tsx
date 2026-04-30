@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Popover as BasePopover } from "@base-ui/react";
-import { cn } from "@/lib/utils";
+import { cn } from "../lib/utils";
 
 const Popover = BasePopover.Root;
 const PopoverTrigger = BasePopover.Trigger;
