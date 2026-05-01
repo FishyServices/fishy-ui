@@ -34,22 +34,22 @@
     --default-mono-font-family: var(--font-mono);
     --color-background: oklch(0.12 0.02 250);
     --color-foreground: oklch(0.98 0.01 250);
-    --color-card: oklch(0.15 0.03 250);
+    --color-card: oklch(0.145 0.022 250);
     --color-card-foreground: oklch(0.98 0.01 250);
-    --color-popover: oklch(0.14 0.03 250);
+    --color-popover: oklch(0.14 0.022 250);
     --color-popover-foreground: oklch(0.98 0.01 250);
     --color-primary: oklch(0.65 0.15 180);
     --color-primary-foreground: oklch(0.98 0.01 250);
-    --color-secondary: oklch(0.22 0.04 250);
+    --color-secondary: oklch(0.2 0.028 250);
     --color-secondary-foreground: oklch(0.98 0.01 250);
-    --color-muted: oklch(0.25 0.03 250);
+    --color-muted: oklch(0.2 0.02 250);
     --color-muted-foreground: oklch(0.65 0.03 250);
-    --color-accent: oklch(0.3 0.05 250);
+    --color-accent: oklch(0.24 0.024 250);
     --color-accent-foreground: oklch(0.98 0.01 250);
     --color-destructive: oklch(0.55 0.2 25);
     --color-destructive-foreground: oklch(0.98 0.01 250);
-    --color-border: oklch(0.25 0.03 250);
-    --color-input: oklch(0.25 0.03 250);
+    --color-border: oklch(0.21 0.018 250);
+    --color-input: oklch(0.205 0.016 250);
     --color-ring: oklch(0.65 0.15 180);
   }
 }
@@ -533,6 +533,12 @@
   .border-border {
     border-color: var(--color-border);
   }
+  .border-border\/35 {
+    border-color: color-mix(in srgb, oklch(0.21 0.018 250) 35%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-border) 35%, transparent);
+    }
+  }
   .border-destructive\/50 {
     border-color: color-mix(in srgb, oklch(0.55 0.2 25) 50%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -541,6 +547,12 @@
   }
   .border-input {
     border-color: var(--color-input);
+  }
+  .border-input\/55 {
+    border-color: color-mix(in srgb, oklch(0.205 0.016 250) 55%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-input) 55%, transparent);
+    }
   }
   .border-primary {
     border-color: var(--color-primary);
@@ -594,7 +606,7 @@
     background-color: var(--color-muted);
   }
   .bg-muted\/50 {
-    background-color: color-mix(in srgb, oklch(0.25 0.03 250) 50%, transparent);
+    background-color: color-mix(in srgb, oklch(0.2 0.02 250) 50%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       background-color: color-mix(in oklab, var(--color-muted) 50%, transparent);
     }
@@ -782,6 +794,10 @@
   }
   .shadow-md {
     --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-none {
+    --tw-shadow: 0 0 #0000;
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .shadow-sm {
@@ -978,12 +994,12 @@
       }
     }
   }
-  .hover\:bg-muted\/50 {
+  .hover\:bg-muted\/35 {
     &:hover {
       @media (hover: hover) {
-        background-color: color-mix(in srgb, oklch(0.25 0.03 250) 50%, transparent);
+        background-color: color-mix(in srgb, oklch(0.2 0.02 250) 35%, transparent);
         @supports (color: color-mix(in lab, red, red)) {
-          background-color: color-mix(in oklab, var(--color-muted) 50%, transparent);
+          background-color: color-mix(in oklab, var(--color-muted) 35%, transparent);
         }
       }
     }
@@ -1001,7 +1017,7 @@
   .hover\:bg-secondary\/80 {
     &:hover {
       @media (hover: hover) {
-        background-color: color-mix(in srgb, oklch(0.22 0.04 250) 80%, transparent);
+        background-color: color-mix(in srgb, oklch(0.2 0.028 250) 80%, transparent);
         @supports (color: color-mix(in lab, red, red)) {
           background-color: color-mix(in oklab, var(--color-secondary) 80%, transparent);
         }
@@ -1115,6 +1131,14 @@
   .focus-visible\:ring-ring {
     &:focus-visible {
       --tw-ring-color: var(--color-ring);
+    }
+  }
+  .focus-visible\:ring-ring\/45 {
+    &:focus-visible {
+      --tw-ring-color: color-mix(in srgb, oklch(0.65 0.15 180) 45%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        --tw-ring-color: color-mix(in oklab, var(--color-ring) 45%, transparent);
+      }
     }
   }
   .focus-visible\:ring-ring\/50 {
@@ -1394,9 +1418,12 @@
       color: var(--color-primary-foreground);
     }
   }
-  .data-\[state\=selected\]\:bg-muted {
+  .data-\[state\=selected\]\:bg-muted\/65 {
     &[data-state="selected"] {
-      background-color: var(--color-muted);
+      background-color: color-mix(in srgb, oklch(0.2 0.02 250) 65%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        background-color: color-mix(in oklab, var(--color-muted) 65%, transparent);
+      }
     }
   }
   .data-\[state\=unchecked\]\:translate-x-0 {
@@ -1459,7 +1486,7 @@
   }
   .dark\:bg-input\/30 {
     @media (prefers-color-scheme: dark) {
-      background-color: color-mix(in srgb, oklch(0.25 0.03 250) 30%, transparent);
+      background-color: color-mix(in srgb, oklch(0.205 0.016 250) 30%, transparent);
       @supports (color: color-mix(in lab, red, red)) {
         background-color: color-mix(in oklab, var(--color-input) 30%, transparent);
       }
@@ -1469,7 +1496,7 @@
     @media (prefers-color-scheme: dark) {
       &:hover {
         @media (hover: hover) {
-          background-color: color-mix(in srgb, oklch(0.25 0.03 250) 50%, transparent);
+          background-color: color-mix(in srgb, oklch(0.205 0.016 250) 50%, transparent);
           @supports (color: color-mix(in lab, red, red)) {
             background-color: color-mix(in oklab, var(--color-input) 50%, transparent);
           }
@@ -1618,9 +1645,12 @@
       border-bottom-width: 1px;
     }
   }
-  .\[\&_tr\]\:border-border {
+  .\[\&_tr\]\:border-border\/35 {
     & tr {
-      border-color: var(--color-border);
+      border-color: color-mix(in srgb, oklch(0.21 0.018 250) 35%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        border-color: color-mix(in oklab, var(--color-border) 35%, transparent);
+      }
     }
   }
   .\[\&_tr\:last-child\]\:border-0 {
@@ -1758,7 +1788,7 @@
     a& {
       &:hover {
         @media (hover: hover) {
-          background-color: color-mix(in srgb, oklch(0.22 0.04 250) 90%, transparent);
+          background-color: color-mix(in srgb, oklch(0.2 0.028 250) 90%, transparent);
           @supports (color: color-mix(in lab, red, red)) {
             background-color: color-mix(in oklab, var(--color-secondary) 90%, transparent);
           }
@@ -1803,7 +1833,7 @@
   .fishy-glass {
     background: rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(12px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.03);
     --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
@@ -1821,25 +1851,23 @@
     border-radius: var(--radius-xl);
     border-style: var(--tw-border-style);
     border-width: 1px;
+    border-color: color-mix(in srgb, oklch(0.21 0.018 250) 35%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-border) 35%, transparent);
+    }
     background-color: var(--color-card);
     color: var(--color-card-foreground);
-    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    --tw-shadow: 0 0 #0000;
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     transition-property: all;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
     &:hover {
       @media (hover: hover) {
-        border-color: color-mix(in srgb, oklch(0.65 0.15 180) 30%, transparent);
+        border-color: color-mix(in srgb, oklch(0.65 0.15 180) 18%, transparent);
         @supports (color: color-mix(in lab, red, red)) {
-          border-color: color-mix(in oklab, var(--color-primary) 30%, transparent);
+          border-color: color-mix(in oklab, var(--color-primary) 18%, transparent);
         }
-      }
-    }
-    &:hover {
-      @media (hover: hover) {
-        --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
-        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
       }
     }
   }

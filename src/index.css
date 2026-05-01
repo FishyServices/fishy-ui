@@ -9,29 +9,29 @@
   --color-background: oklch(0.12 0.02 250);
   --color-foreground: oklch(0.98 0.01 250);
 
-  --color-card: oklch(0.15 0.03 250);
+  --color-card: oklch(0.145 0.022 250);
   --color-card-foreground: oklch(0.98 0.01 250);
 
-  --color-popover: oklch(0.14 0.03 250);
+  --color-popover: oklch(0.14 0.022 250);
   --color-popover-foreground: oklch(0.98 0.01 250);
 
   --color-primary: oklch(0.65 0.15 180); /* Brighter Teal */
   --color-primary-foreground: oklch(0.98 0.01 250);
 
-  --color-secondary: oklch(0.22 0.04 250);
+  --color-secondary: oklch(0.2 0.028 250);
   --color-secondary-foreground: oklch(0.98 0.01 250);
 
-  --color-muted: oklch(0.25 0.03 250);
+  --color-muted: oklch(0.2 0.02 250);
   --color-muted-foreground: oklch(0.65 0.03 250);
 
-  --color-accent: oklch(0.3 0.05 250);
+  --color-accent: oklch(0.24 0.024 250);
   --color-accent-foreground: oklch(0.98 0.01 250);
 
   --color-destructive: oklch(0.55 0.2 25);
   --color-destructive-foreground: oklch(0.98 0.01 250);
 
-  --color-border: oklch(0.25 0.03 250);
-  --color-input: oklch(0.25 0.03 250);
+  --color-border: oklch(0.21 0.018 250);
+  --color-input: oklch(0.205 0.016 250);
   --color-ring: oklch(0.65 0.15 180);
 
   --radius-lg: 0.75rem;
@@ -66,7 +66,7 @@
   .fishy-glass {
     background: rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(12px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.03);
     @apply shadow-xl;
   }
   
@@ -75,7 +75,7 @@
   }
 
   .fishy-card {
-    @apply rounded-xl border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md hover:border-primary/30;
+    @apply rounded-xl border border-border/35 bg-card text-card-foreground shadow-none transition-all hover:border-primary/18;
   }
 
   .fishy-noise::after {
@@ -118,4 +118,3 @@
     overflow: hidden;
   }
 }
-
