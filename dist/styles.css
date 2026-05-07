@@ -394,6 +394,9 @@
   .min-w-36 {
     min-width: calc(var(--spacing) * 36);
   }
+  .min-w-\[6\.75rem\] {
+    min-width: 6.75rem;
+  }
   .min-w-\[8rem\] {
     min-width: 8rem;
   }
@@ -609,6 +612,12 @@
     background-color: color-mix(in srgb, oklch(0.2 0.02 250) 50%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       background-color: color-mix(in oklab, var(--color-muted) 50%, transparent);
+    }
+  }
+  .bg-muted\/65 {
+    background-color: color-mix(in srgb, oklch(0.2 0.02 250) 65%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-muted) 65%, transparent);
     }
   }
   .bg-popover {
@@ -984,6 +993,16 @@
       }
     }
   }
+  .hover\:bg-background\/70 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, oklch(0.12 0.02 250) 70%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-background) 70%, transparent);
+        }
+      }
+    }
+  }
   .hover\:bg-destructive\/90 {
     &:hover {
       @media (hover: hover) {
@@ -1038,6 +1057,13 @@
     &:hover {
       @media (hover: hover) {
         color: var(--color-accent-foreground);
+      }
+    }
+  }
+  .hover\:text-foreground {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-foreground);
       }
     }
   }

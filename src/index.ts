@@ -18,6 +18,7 @@ export * from "./components/Switch";
 export * from "./components/Table";
 export * from "./components/Tabs";
 export * from "./components/Textarea";
+export * from "./components/ThemeSwitcher";
 export * from "./components/Toaster";
 export * from "./components/Tooltip";
 export * from "./lib/utils";
