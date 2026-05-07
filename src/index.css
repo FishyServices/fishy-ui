@@ -52,6 +52,31 @@
 }
 
 @layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --color-background: oklch(0.972 0.008 230);
+    --color-foreground: oklch(0.235 0.024 235);
+    --color-card: oklch(0.992 0.006 230);
+    --color-card-foreground: oklch(0.235 0.024 235);
+    --color-popover: oklch(0.99 0.005 230);
+    --color-popover-foreground: oklch(0.235 0.024 235);
+    --color-primary: oklch(0.56 0.13 195);
+    --color-primary-foreground: oklch(0.985 0.004 230);
+    --color-secondary: oklch(0.93 0.014 230);
+    --color-secondary-foreground: oklch(0.28 0.022 235);
+    --color-muted: oklch(0.94 0.01 230);
+    --color-muted-foreground: oklch(0.5 0.02 235);
+    --color-accent: oklch(0.915 0.016 230);
+    --color-accent-foreground: oklch(0.28 0.022 235);
+    --color-border: oklch(0.87 0.015 230);
+    --color-input: oklch(0.89 0.014 230);
+    --color-ring: oklch(0.56 0.13 195);
+  }
+
   * {
     @apply border-border;
   }
@@ -59,6 +84,75 @@
     @apply bg-background text-foreground font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
     min-height: 100vh;
+  }
+
+  :root[data-theme="light"] body {
+    background-image:
+      radial-gradient(circle at top left, color-mix(in oklab, var(--color-primary) 18%, transparent), transparent 30%),
+      radial-gradient(circle at bottom right, color-mix(in oklab, var(--color-secondary) 80%, transparent), transparent 26%),
+      linear-gradient(color-mix(in oklab, var(--color-foreground) 8%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in oklab, var(--color-foreground) 8%, transparent) 1px, transparent 1px);
+    background-size:
+      auto,
+      auto,
+      32px 32px,
+      32px 32px;
+  }
+}
+
+@layer base {
+  html[data-theme="light"] .text-white {
+    color: var(--color-foreground) !important;
+  }
+
+  html[data-theme="light"] .text-white\/80 {
+    color: color-mix(in oklab, var(--color-foreground) 82%, transparent) !important;
+  }
+
+  html[data-theme="light"] .text-white\/70 {
+    color: color-mix(in oklab, var(--color-foreground) 72%, transparent) !important;
+  }
+
+  html[data-theme="light"] .text-white\/60 {
+    color: color-mix(in oklab, var(--color-foreground) 62%, transparent) !important;
+  }
+
+  html[data-theme="light"] .text-white\/50,
+  html[data-theme="light"] .text-white\/40,
+  html[data-theme="light"] .text-white\/30,
+  html[data-theme="light"] .text-white\/20 {
+    color: var(--color-muted-foreground) !important;
+  }
+
+  html[data-theme="light"] .bg-black,
+  html[data-theme="light"] .bg-black\/90,
+  html[data-theme="light"] .bg-black\/70,
+  html[data-theme="light"] .bg-black\/50 {
+    background-color: color-mix(in oklab, var(--color-card) 94%, transparent) !important;
+  }
+
+  html[data-theme="light"] .bg-white\/10,
+  html[data-theme="light"] .bg-white\/8,
+  html[data-theme="light"] .bg-white\/5,
+  html[data-theme="light"] .bg-white\/4 {
+    background-color: color-mix(in oklab, var(--color-muted) 70%, transparent) !important;
+  }
+
+  html[data-theme="light"] .border-white\/20,
+  html[data-theme="light"] .border-white\/15,
+  html[data-theme="light"] .border-white\/10,
+  html[data-theme="light"] .border-white\/8,
+  html[data-theme="light"] .border-white\/5 {
+    border-color: color-mix(in oklab, var(--color-border) 92%, transparent) !important;
+  }
+
+  html[data-theme="light"] .from-black\/95,
+  html[data-theme="light"] .via-black\/50,
+  html[data-theme="light"] .to-transparent,
+  html[data-theme="light"] .to-black\/20 {
+    --tw-gradient-from: color-mix(in oklab, var(--color-background) 96%, transparent) var(--tw-gradient-from-position) !important;
+    --tw-gradient-via: color-mix(in oklab, var(--color-background) 62%, transparent) var(--tw-gradient-via-position) !important;
+    --tw-gradient-to: transparent var(--tw-gradient-to-position) !important;
   }
 }
 
