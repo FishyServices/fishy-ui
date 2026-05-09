@@ -15,6 +15,7 @@ type CommandContextValue = {
   unregisterItem: (id: string) => void;
   isVisible: (id: string) => boolean;
   visibleCount: number;
+  totalCount: number;
   getGroupVisibleCount: (groupId: string | null) => number;
 };
 
@@ -68,6 +69,7 @@ const Command = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEle
         unregisterItem,
         isVisible: (id) => visibleIds.has(id),
         visibleCount: visibleIds.size,
+        totalCount: Object.keys(items).length,
         getGroupVisibleCount: (groupId) =>
           Object.entries(items).reduce((count, [id, item]) => {
             if (item.groupId !== groupId) return count;
@@ -143,7 +145,8 @@ CommandList.displayName = "CommandList";
 
 const CommandEmpty = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => {
-    const { visibleCount } = useCommandContext();
+    const { totalCount, visibleCount } = useCommandContext();
+    if (totalCount === 0) return null;
     if (visibleCount > 0) return null;
 
     return <div ref={ref} className={cn("py-6 text-center text-sm", className)} {...props} />;
@@ -161,12 +164,17 @@ const CommandGroup = React.forwardRef<HTMLDivElement, CommandGroupProps>(
     const { getGroupVisibleCount } = useCommandContext();
     const visibleCount = getGroupVisibleCount(groupId);
 
-    if (visibleCount === 0) return null;
-
     return (
       <CommandGroupContext.Provider value={groupId}>
-        <div ref={ref} className={cn("overflow-hidden p-1 text-foreground", className)} {...props}>
-          {heading ? (
+        <div
+          ref={ref}
+          className={cn(
+            visibleCount === 0 ? "hidden" : "overflow-hidden p-1 text-foreground",
+            className
+          )}
+          {...props}
+        >
+          {heading && visibleCount > 0 ? (
             <div className="px-2 py-1.5 text-xs font-medium text-muted-foreground">{heading}</div>
           ) : null}
           {children}

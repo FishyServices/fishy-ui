@@ -42,6 +42,7 @@ const Command = React.forwardRef(({ className, ...props }, ref) => {
         unregisterItem,
         isVisible: (id) => visibleIds.has(id),
         visibleCount: visibleIds.size,
+        totalCount: Object.keys(items).length,
         getGroupVisibleCount: (groupId) => Object.entries(items).reduce((count, [id, item]) => {
             if (item.groupId !== groupId)
                 return count;
@@ -65,7 +66,9 @@ CommandInput.displayName = "CommandInput";
 const CommandList = React.forwardRef(({ className, ...props }, ref) => (_jsx("div", { ref: ref, className: cn("max-h-[300px] overflow-y-auto overflow-x-hidden", className), ...props })));
 CommandList.displayName = "CommandList";
 const CommandEmpty = React.forwardRef(({ className, ...props }, ref) => {
-    const { visibleCount } = useCommandContext();
+    const { totalCount, visibleCount } = useCommandContext();
+    if (totalCount === 0)
+        return null;
     if (visibleCount > 0)
         return null;
     return _jsx("div", { ref: ref, className: cn("py-6 text-center text-sm", className), ...props });
@@ -75,9 +78,7 @@ const CommandGroup = React.forwardRef(({ className, heading, children, ...props 
     const groupId = React.useId();
     const { getGroupVisibleCount } = useCommandContext();
     const visibleCount = getGroupVisibleCount(groupId);
-    if (visibleCount === 0)
-        return null;
-    return (_jsx(CommandGroupContext.Provider, { value: groupId, children: _jsxs("div", { ref: ref, className: cn("overflow-hidden p-1 text-foreground", className), ...props, children: [heading ? (_jsx("div", { className: "px-2 py-1.5 text-xs font-medium text-muted-foreground", children: heading })) : null, children] }) }));
+    return (_jsx(CommandGroupContext.Provider, { value: groupId, children: _jsxs("div", { ref: ref, className: cn(visibleCount === 0 ? "hidden" : "overflow-hidden p-1 text-foreground", className), ...props, children: [heading && visibleCount > 0 ? (_jsx("div", { className: "px-2 py-1.5 text-xs font-medium text-muted-foreground", children: heading })) : null, children] }) }));
 });
 CommandGroup.displayName = "CommandGroup";
 const CommandSeparator = React.forwardRef(({ className, ...props }, ref) => (_jsx("div", { ref: ref, className: cn("-mx-1 h-px bg-border", className), ...props })));
