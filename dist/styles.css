@@ -1,5 +1,4 @@
 /*! tailwindcss v4.2.4 | MIT License | https://tailwindcss.com */
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap");
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
@@ -1750,6 +1749,16 @@
 @layer base {
   :root {
     color-scheme: dark;
+  }
+  :root[data-fishy-density="compact"] {
+    --radius-lg: 0.625rem;
+    --radius-md: 0.425rem;
+    --radius-sm: 0.25rem;
+  }
+  :root[data-fishy-density="touch"] {
+    --radius-lg: 0.9rem;
+    --radius-md: 0.7rem;
+    --radius-sm: 0.425rem;
   }
   :root[data-theme="light"] {
     color-scheme: light;
