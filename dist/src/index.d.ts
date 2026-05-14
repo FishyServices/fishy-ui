@@ -7,4 +7,3 @@ export * from "./components/Switch";
 export * from "./components/Tabs";
 export * from "./components/Label";
 export * from "./lib/utils";
-

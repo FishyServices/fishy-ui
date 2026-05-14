@@ -1318,16 +1318,6 @@
       animation: none;
     }
   }
-  .data-\[disabled\]\:pointer-events-none {
-    &[data-disabled] {
-      pointer-events: none;
-    }
-  }
-  .data-\[disabled\]\:opacity-50 {
-    &[data-disabled] {
-      opacity: 50%;
-    }
-  }
   .data-\[orientation\=horizontal\]\:h-\[1px\] {
     &[data-orientation="horizontal"] {
       height: 1px;

@@ -15,7 +15,7 @@ const badgeVariants = cva(
           "border-border text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
         ghost: "[a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
         link: "text-primary underline-offset-4 [a&]:hover:underline",
-        fishy: "fishy-glass hover:bg-white/10 text-primary-foreground",
+        fishy: "fishy-glass hover:bg-white/10 text-primary-foreground"
       }
     },
     defaultVariants: {
@@ -40,4 +40,3 @@ function Badge({
 }
 
 export { Badge, badgeVariants };
-

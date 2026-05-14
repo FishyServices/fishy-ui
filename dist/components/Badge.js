@@ -10,7 +10,7 @@ const badgeVariants = cva("inline-flex w-fit shrink-0 items-center justify-cente
             outline: "border-border text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
             ghost: "[a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
             link: "text-primary underline-offset-4 [a&]:hover:underline",
-            fishy: "fishy-glass hover:bg-white/10 text-primary-foreground",
+            fishy: "fishy-glass hover:bg-white/10 text-primary-foreground"
         }
     },
     defaultVariants: {

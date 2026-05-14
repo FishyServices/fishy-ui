@@ -19,4 +19,4 @@ const DialogTitle = React.forwardRef(({ className, ...props }, ref) => (_jsx(Bas
 DialogTitle.displayName = "DialogTitle";
 const DialogDescription = React.forwardRef(({ className, ...props }, ref) => (_jsx(BaseDialog.Description, { ref: ref, className: cn("text-sm text-muted-foreground", className), ...props })));
 DialogDescription.displayName = "DialogDescription";
-export { Dialog, DialogPortal, DialogOverlay, DialogTrigger, DialogClose, DialogContent, DialogHeader, DialogFooter, DialogTitle, DialogDescription, };
+export { Dialog, DialogPortal, DialogOverlay, DialogTrigger, DialogClose, DialogContent, DialogHeader, DialogFooter, DialogTitle, DialogDescription };

@@ -17,4 +17,4 @@ const TableCell = React.forwardRef(({ className, ...props }, ref) => (_jsx("td",
 TableCell.displayName = "TableCell";
 const TableCaption = React.forwardRef(({ className, ...props }, ref) => (_jsx("caption", { ref: ref, className: cn("mt-4 text-sm text-muted-foreground", className), ...props })));
 TableCaption.displayName = "TableCaption";
-export { Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell, TableCaption, };
+export { Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell, TableCaption };

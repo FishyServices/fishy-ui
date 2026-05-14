@@ -13,8 +13,10 @@ const TabsList = React.forwardRef<
   <BaseTabs.List
     ref={ref}
     className={cn(
-      variant === "default" && "inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground",
-      variant === "line" && "inline-flex h-11 items-center justify-start gap-6 border-b border-white/10 bg-transparent p-0 text-muted-foreground",
+      variant === "default" &&
+        "inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground",
+      variant === "line" &&
+        "inline-flex h-11 items-center justify-start gap-6 border-b border-white/10 bg-transparent p-0 text-muted-foreground",
       className
     )}
     {...props}

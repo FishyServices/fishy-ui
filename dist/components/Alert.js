@@ -7,12 +7,12 @@ const alertVariants = cva("relative w-full rounded-lg border p-4 [&>svg~h5]:pl-7
         variant: {
             default: "bg-background text-foreground",
             destructive: "border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive",
-            fishy: "fishy-glass text-primary-foreground border-primary/30",
-        },
+            fishy: "fishy-glass text-primary-foreground border-primary/30"
+        }
     },
     defaultVariants: {
-        variant: "default",
-    },
+        variant: "default"
+    }
 });
 const Alert = React.forwardRef(({ className, variant, ...props }, ref) => (_jsx("div", { ref: ref, role: "alert", className: cn(alertVariants({ variant }), className), ...props })));
 Alert.displayName = "Alert";
