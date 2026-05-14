@@ -65,7 +65,7 @@ const DropdownMenuPortal = BasePopover.Portal;
 const DropdownMenuSub = DropdownMenu;
 
 const dropdownContentClass =
-  "z-[80] min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md outline-none transform-gpu will-change-[transform,opacity] data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2";
+  "z-[140] min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md outline-none transform-gpu will-change-[transform,opacity] data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2";
 
 const DropdownMenuContent = React.forwardRef<
   HTMLDivElement,
@@ -209,7 +209,7 @@ const DropdownMenuSeparator = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("-mx-1 my-1 h-[1px] bg-muted", className)} {...props} />
+  <div ref={ref} className={cn("-mx-1 my-1 h-px bg-muted", className)} {...props} />
 ));
 DropdownMenuSeparator.displayName = "DropdownMenuSeparator";
 
