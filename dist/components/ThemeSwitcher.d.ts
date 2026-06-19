@@ -9,5 +9,5 @@ export interface ThemeSwitcherProps extends React.HTMLAttributes<HTMLDivElement>
     onValueChange: (value: string) => void;
     options?: ThemeSwitcherOption[];
 }
-declare function ThemeSwitcher({ className, value, onValueChange, options, ...props }: ThemeSwitcherProps): import("react/jsx-runtime").JSX.Element;
+declare function ThemeSwitcher({ className, value, onValueChange, options, ...props }: ThemeSwitcherProps): React.JSX.Element;
 export { ThemeSwitcher };

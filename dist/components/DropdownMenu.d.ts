@@ -3,9 +3,9 @@ import { Popover as BasePopover } from "@base-ui/react";
 type DropdownMenuProps = Omit<React.ComponentPropsWithoutRef<typeof BasePopover.Root>, "open"> & {
     open?: boolean;
 };
-declare function DropdownMenu({ open: controlledOpen, defaultOpen, onOpenChange, children, ...props }: DropdownMenuProps): import("react/jsx-runtime").JSX.Element;
+declare function DropdownMenu({ open: controlledOpen, defaultOpen, onOpenChange, children, ...props }: DropdownMenuProps): React.JSX.Element;
 declare const DropdownMenuTrigger: BasePopover.Trigger;
-declare const DropdownMenuGroup: ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => import("react/jsx-runtime").JSX.Element;
+declare const DropdownMenuGroup: ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => React.JSX.Element;
 declare const DropdownMenuPortal: React.ForwardRefExoticComponent<Omit<import("@base-ui/react").PopoverPortalProps, "ref"> & React.RefAttributes<HTMLDivElement>>;
 declare const DropdownMenuSub: typeof DropdownMenu;
 declare const DropdownMenuContent: React.ForwardRefExoticComponent<Omit<Omit<import("@base-ui/react").PopoverPopupProps, "ref"> & React.RefAttributes<HTMLDivElement>, "ref"> & React.RefAttributes<HTMLDivElement>>;

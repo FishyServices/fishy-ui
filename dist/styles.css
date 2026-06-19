@@ -1,4 +1,4 @@
-/*! tailwindcss v4.2.4 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.3.1 | MIT License | https://tailwindcss.com */
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
@@ -225,16 +225,16 @@
     position: relative;
   }
   .inset-0 {
-    inset: calc(var(--spacing) * 0);
+    inset: 0;
   }
   .inset-x-0 {
-    inset-inline: calc(var(--spacing) * 0);
+    inset-inline: 0;
   }
   .inset-y-0 {
-    inset-block: calc(var(--spacing) * 0);
+    inset-block: 0;
   }
   .top-0 {
-    top: calc(var(--spacing) * 0);
+    top: 0;
   }
   .top-4 {
     top: calc(var(--spacing) * 4);
@@ -243,7 +243,7 @@
     top: 50%;
   }
   .right-0 {
-    right: calc(var(--spacing) * 0);
+    right: 0;
   }
   .right-2 {
     right: calc(var(--spacing) * 2);
@@ -252,10 +252,10 @@
     right: calc(var(--spacing) * 4);
   }
   .bottom-0 {
-    bottom: calc(var(--spacing) * 0);
+    bottom: 0;
   }
   .left-0 {
-    left: calc(var(--spacing) * 0);
+    left: 0;
   }
   .left-2 {
     left: calc(var(--spacing) * 2);
@@ -272,11 +272,17 @@
   .z-50 {
     z-index: 50;
   }
+  .z-140 {
+    z-index: 140;
+  }
+  .z-\[140\] {
+    z-index: 140;
+  }
   .-mx-1 {
     margin-inline: calc(var(--spacing) * -1);
   }
   .my-1 {
-    margin-block: calc(var(--spacing) * 1);
+    margin-block: var(--spacing);
   }
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
@@ -288,7 +294,7 @@
     margin-right: calc(var(--spacing) * 2);
   }
   .mb-1 {
-    margin-bottom: calc(var(--spacing) * 1);
+    margin-bottom: var(--spacing);
   }
   .ml-auto {
     margin-left: auto;
@@ -341,9 +347,6 @@
   }
   .h-11 {
     height: calc(var(--spacing) * 11);
-  }
-  .h-\[1px\] {
-    height: 1px;
   }
   .h-full {
     height: 100%;
@@ -425,6 +428,9 @@
     --tw-translate-y: -50%;
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
+  .transform-gpu {
+    transform: translateZ(0) var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
   .cursor-default {
     cursor: default;
   }
@@ -435,7 +441,7 @@
     touch-action: none;
   }
   .scroll-my-1 {
-    scroll-margin-block: calc(var(--spacing) * 1);
+    scroll-margin-block: var(--spacing);
   }
   .flex-col {
     flex-direction: column;
@@ -456,7 +462,7 @@
     justify-content: flex-start;
   }
   .gap-1 {
-    gap: calc(var(--spacing) * 1);
+    gap: var(--spacing);
   }
   .gap-1\.5 {
     gap: calc(var(--spacing) * 1.5);
@@ -644,10 +650,10 @@
     fill: currentcolor;
   }
   .p-0 {
-    padding: calc(var(--spacing) * 0);
+    padding: 0;
   }
   .p-1 {
-    padding: calc(var(--spacing) * 1);
+    padding: var(--spacing);
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
@@ -677,7 +683,7 @@
     padding-block: calc(var(--spacing) * 0.5);
   }
   .py-1 {
-    padding-block: calc(var(--spacing) * 1);
+    padding-block: var(--spacing);
   }
   .py-1\.5 {
     padding-block: calc(var(--spacing) * 1.5);
@@ -692,7 +698,7 @@
     padding-block: calc(var(--spacing) * 6);
   }
   .pt-0 {
-    padding-top: calc(var(--spacing) * 0);
+    padding-top: 0;
   }
   .pr-2 {
     padding-right: calc(var(--spacing) * 2);
@@ -900,6 +906,9 @@
   .ease-in-out {
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
+  }
+  .will-change-\[transform\,opacity\] {
+    will-change: transform,opacity;
   }
   .outline-none {
     --tw-outline-style: none;
@@ -1304,7 +1313,7 @@
   }
   .data-unchecked\:translate-x-0 {
     &[data-unchecked] {
-      --tw-translate-x: calc(var(--spacing) * 0);
+      --tw-translate-x: 0;
       translate: var(--tw-translate-x) var(--tw-translate-y);
     }
   }
@@ -1426,7 +1435,7 @@
   }
   .data-\[state\=unchecked\]\:translate-x-0 {
     &[data-state="unchecked"] {
-      --tw-translate-x: calc(var(--spacing) * 0);
+      --tw-translate-x: 0;
       translate: var(--tw-translate-x) var(--tw-translate-y);
     }
   }
@@ -1582,7 +1591,7 @@
   }
   .\[\&\:has\(\[role\=checkbox\]\)\]\:pr-0 {
     &:has([role=checkbox]) {
-      padding-right: calc(var(--spacing) * 0);
+      padding-right: 0;
     }
   }
   .\*\:\[span\]\:last\:flex {
