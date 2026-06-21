@@ -502,6 +502,9 @@
   .overflow-y-auto {
     overflow-y: auto;
   }
+  .rounded {
+    border-radius: 0.25rem;
+  }
   .rounded-full {
     border-radius: calc(infinity * 1px);
   }
@@ -1758,6 +1761,37 @@
     --radius-lg: 0.9rem;
     --radius-md: 0.7rem;
     --radius-sm: 0.425rem;
+  }
+  :root[data-fishy-radius="sharp"] {
+    --radius-lg: 0rem;
+    --radius-md: 0rem;
+    --radius-sm: 0rem;
+  }
+  :root[data-fishy-radius="rounded"] {
+    --radius-lg: 0.75rem;
+    --radius-md: 0.5rem;
+    --radius-sm: 0.25rem;
+  }
+  :root[data-fishy-radius="playful"] {
+    --radius-lg: 1.25rem;
+    --radius-md: 0.85rem;
+    --radius-sm: 0.5rem;
+  }
+  :root[data-fishy-accent="cyan"] {
+    --color-primary: oklch(0.7 0.14 200);
+    --color-ring: oklch(0.7 0.14 200);
+  }
+  :root[data-fishy-accent="indigo"] {
+    --color-primary: oklch(0.62 0.1 182);
+    --color-ring: oklch(0.62 0.1 182);
+  }
+  :root[data-fishy-accent="rose"] {
+    --color-primary: oklch(0.65 0.18 15);
+    --color-ring: oklch(0.65 0.18 15);
+  }
+  :root[data-fishy-accent="emerald"] {
+    --color-primary: oklch(0.68 0.15 145);
+    --color-ring: oklch(0.68 0.15 145);
   }
   :root[data-theme="light"] {
     color-scheme: light;
