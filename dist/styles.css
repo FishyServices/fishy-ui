@@ -21,10 +21,10 @@
     --tracking-tight: -0.025em;
     --tracking-widest: 0.1em;
     --leading-relaxed: 1.625;
-    --radius-sm: 0.25rem;
-    --radius-md: 0.5rem;
-    --radius-lg: 0.75rem;
-    --radius-xl: 0.75rem;
+    --radius-sm: var(--radius-sm-dynamic);
+    --radius-md: var(--radius-md-dynamic);
+    --radius-lg: var(--radius-lg-dynamic);
+    --radius-xl: var(--radius-xl-dynamic);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --blur-sm: 8px;
     --default-transition-duration: 150ms;
@@ -1751,31 +1751,38 @@
 @layer base {
   :root {
     color-scheme: dark;
+    --radius-xl-dynamic: 1rem;
+    --radius-lg-dynamic: 0.75rem;
+    --radius-md-dynamic: 0.5rem;
+    --radius-sm-dynamic: 0.25rem;
   }
   :root[data-fishy-density="compact"] {
-    --radius-lg: 0.625rem;
-    --radius-md: 0.425rem;
-    --radius-sm: 0.25rem;
+    --radius-lg-dynamic: 0.625rem;
+    --radius-md-dynamic: 0.425rem;
+    --radius-sm-dynamic: 0.25rem;
   }
   :root[data-fishy-density="touch"] {
-    --radius-lg: 0.9rem;
-    --radius-md: 0.7rem;
-    --radius-sm: 0.425rem;
+    --radius-lg-dynamic: 0.9rem;
+    --radius-md-dynamic: 0.7rem;
+    --radius-sm-dynamic: 0.425rem;
   }
   :root[data-fishy-radius="sharp"] {
-    --radius-lg: 0rem;
-    --radius-md: 0rem;
-    --radius-sm: 0rem;
+    --radius-xl-dynamic: 0rem;
+    --radius-lg-dynamic: 0rem;
+    --radius-md-dynamic: 0rem;
+    --radius-sm-dynamic: 0rem;
   }
   :root[data-fishy-radius="rounded"] {
-    --radius-lg: 0.75rem;
-    --radius-md: 0.5rem;
-    --radius-sm: 0.25rem;
+    --radius-xl-dynamic: 1rem;
+    --radius-lg-dynamic: 0.75rem;
+    --radius-md-dynamic: 0.5rem;
+    --radius-sm-dynamic: 0.25rem;
   }
   :root[data-fishy-radius="playful"] {
-    --radius-lg: 1.25rem;
-    --radius-md: 0.85rem;
-    --radius-sm: 0.5rem;
+    --radius-xl-dynamic: 1.75rem;
+    --radius-lg-dynamic: 1.25rem;
+    --radius-md-dynamic: 0.85rem;
+    --radius-sm-dynamic: 0.5rem;
   }
   :root[data-fishy-accent="cyan"] {
     --color-primary: oklch(0.7 0.14 200);
