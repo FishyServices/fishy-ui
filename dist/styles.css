@@ -275,8 +275,11 @@
   .z-140 {
     z-index: 140;
   }
-  .z-\[140\] {
-    z-index: 140;
+  .z-1000 {
+    z-index: 1000;
+  }
+  .z-\[1000\] {
+    z-index: 1000;
   }
   .-mx-1 {
     margin-inline: calc(var(--spacing) * -1);
