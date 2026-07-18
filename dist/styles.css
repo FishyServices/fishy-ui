@@ -269,18 +269,6 @@
   .z-10 {
     z-index: 10;
   }
-  .z-50 {
-    z-index: 50;
-  }
-  .z-140 {
-    z-index: 140;
-  }
-  .z-1000 {
-    z-index: 1000;
-  }
-  .z-\[1000\] {
-    z-index: 1000;
-  }
   .-mx-1 {
     margin-inline: calc(var(--spacing) * -1);
   }
@@ -1399,55 +1387,12 @@
       }
     }
   }
-  .data-\[state\=active\]\:bg-background {
-    &[data-state="active"] {
-      background-color: var(--color-background);
-    }
-  }
-  .data-\[state\=active\]\:text-foreground {
-    &[data-state="active"] {
-      color: var(--color-foreground);
-    }
-  }
-  .data-\[state\=active\]\:shadow {
-    &[data-state="active"] {
-      --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
-      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-    }
-  }
-  .data-\[state\=checked\]\:translate-x-4 {
-    &[data-state="checked"] {
-      --tw-translate-x: calc(var(--spacing) * 4);
-      translate: var(--tw-translate-x) var(--tw-translate-y);
-    }
-  }
-  .data-\[state\=checked\]\:bg-primary {
-    &[data-state="checked"] {
-      background-color: var(--color-primary);
-    }
-  }
-  .data-\[state\=checked\]\:text-primary-foreground {
-    &[data-state="checked"] {
-      color: var(--color-primary-foreground);
-    }
-  }
   .data-\[state\=selected\]\:bg-muted\/65 {
     &[data-state="selected"] {
       background-color: color-mix(in srgb, oklch(0.23 0.01 240) 65%, transparent);
       @supports (color: color-mix(in lab, red, red)) {
         background-color: color-mix(in oklab, var(--color-muted) 65%, transparent);
       }
-    }
-  }
-  .data-\[state\=unchecked\]\:translate-x-0 {
-    &[data-state="unchecked"] {
-      --tw-translate-x: 0;
-      translate: var(--tw-translate-x) var(--tw-translate-y);
-    }
-  }
-  .data-\[state\=unchecked\]\:bg-input {
-    &[data-state="unchecked"] {
-      background-color: var(--color-input);
     }
   }
   .sm\:max-w-sm {
@@ -1749,6 +1694,52 @@
         }
       }
     }
+  }
+}
+@layer base {
+  :root {
+    --z-content: 0;
+    --z-sticky: 100;
+    --z-header: 200;
+    --z-menu: 500;
+    --z-popover: 600;
+    --z-tooltip: 700;
+    --z-overlay: 1000;
+    --z-modal: 1010;
+    --z-floating: 1020;
+    --z-toast: 1100;
+  }
+}
+@layer utilities {
+  .z-content {
+    z-index: var(--z-content);
+  }
+  .z-sticky {
+    z-index: var(--z-sticky);
+  }
+  .z-header {
+    z-index: var(--z-header);
+  }
+  .z-menu {
+    z-index: var(--z-menu);
+  }
+  .z-popover {
+    z-index: var(--z-popover);
+  }
+  .z-tooltip {
+    z-index: var(--z-tooltip);
+  }
+  .z-overlay {
+    z-index: var(--z-overlay);
+  }
+  .z-modal {
+    z-index: var(--z-modal);
+  }
+  .z-floating {
+    z-index: var(--z-floating);
+  }
+  .z-toast {
+    z-index: var(--z-toast);
   }
 }
 @layer base {

@@ -8,9 +8,9 @@ const Sheet = BaseDialog.Root;
 const SheetTrigger = BaseDialog.Trigger;
 const SheetClose = BaseDialog.Close;
 const SheetPortal = BaseDialog.Portal;
-const SheetOverlay = React.forwardRef(({ className, ...props }, ref) => (_jsx(BaseDialog.Backdrop, { className: cn("fixed inset-0 z-1000 bg-black/20 backdrop-blur-[2px] data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0", className), ...props, ref: ref })));
+const SheetOverlay = React.forwardRef(({ className, ...props }, ref) => (_jsx(BaseDialog.Backdrop, { className: cn("fixed inset-0 z-overlay bg-black/20 backdrop-blur-[2px] data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0", className), ...props, ref: ref })));
 SheetOverlay.displayName = "SheetOverlay";
-const sheetVariants = cva("fixed z-[1000] gap-4 bg-background p-6 shadow-lg transition ease-in-out data-closed:duration-300 data-open:duration-500 data-open:animate-in data-closed:animate-out", {
+const sheetVariants = cva("fixed z-modal gap-4 bg-background p-6 shadow-lg transition ease-in-out data-closed:duration-300 data-open:duration-500 data-open:animate-in data-closed:animate-out", {
     variants: {
         side: {
             top: "inset-x-0 top-0 border-b data-closed:slide-out-to-top data-open:slide-in-from-top",
