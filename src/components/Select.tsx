@@ -3,7 +3,12 @@ import { Select as SelectPrimitive } from "@base-ui/react/select";
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 import { cn } from "../lib/utils";
 
-const Select = SelectPrimitive.Root;
+function Select<Value, Multiple extends boolean | undefined = false>({
+  modal = false,
+  ...props
+}: SelectPrimitive.Root.Props<Value, Multiple>) {
+  return <SelectPrimitive.Root {...props} modal={modal} />;
+}
 
 function SelectGroup({ className, ...props }: SelectPrimitive.Group.Props) {
   return (
