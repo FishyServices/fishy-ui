@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Select as SelectPrimitive } from "@base-ui/react/select";
-declare const Select: typeof SelectPrimitive.Root;
+declare function Select<Value, Multiple extends boolean | undefined = false>({ modal, ...props }: SelectPrimitive.Root.Props<Value, Multiple>): React.JSX.Element;
 declare function SelectGroup({ className, ...props }: SelectPrimitive.Group.Props): React.JSX.Element;
 declare function SelectValue({ className, ...props }: SelectPrimitive.Value.Props): React.JSX.Element;
 declare function SelectTrigger({ className, size, children, ...props }: SelectPrimitive.Trigger.Props & {

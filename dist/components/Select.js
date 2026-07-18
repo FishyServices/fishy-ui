@@ -2,7 +2,9 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Select as SelectPrimitive } from "@base-ui/react/select";
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 import { cn } from "../lib/utils";
-const Select = SelectPrimitive.Root;
+function Select({ modal = false, ...props }) {
+    return _jsx(SelectPrimitive.Root, { ...props, modal: modal });
+}
 function SelectGroup({ className, ...props }) {
     return (_jsx(SelectPrimitive.Group, { "data-slot": "select-group", className: cn("scroll-my-1 p-1", className), ...props }));
 }
