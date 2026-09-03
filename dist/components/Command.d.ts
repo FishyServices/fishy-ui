@@ -13,8 +13,8 @@ declare const CommandItem: React.ForwardRefExoticComponent<React.ButtonHTMLAttri
     value?: string;
     onSelect?: (value: string) => void;
 } & React.RefAttributes<HTMLButtonElement>>;
-declare const CommandShortcut: {
-    ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>): React.JSX.Element;
-    displayName: string;
-};
+declare function CommandShortcut({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>): React.JSX.Element;
+declare namespace CommandShortcut {
+    var displayName: string;
+}
 export { Command, CommandDialog, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem, CommandShortcut, CommandSeparator };

@@ -9,9 +9,9 @@ declare const DropdownMenuGroup: ({ className, ...props }: React.HTMLAttributes<
 declare const DropdownMenuPortal: React.ForwardRefExoticComponent<Omit<import("@base-ui/react").PopoverPortalProps, "ref"> & React.RefAttributes<HTMLDivElement>>;
 declare const DropdownMenuSub: typeof DropdownMenu;
 declare const DropdownMenuContent: React.ForwardRefExoticComponent<Omit<Omit<import("@base-ui/react").PopoverPopupProps, "ref"> & React.RefAttributes<HTMLDivElement>, "ref"> & React.RefAttributes<HTMLDivElement>>;
-declare const DropdownMenuSubTrigger: React.ForwardRefExoticComponent<Omit<import("@base-ui/react/internals/types").NativeButtonProps & Omit<import("@base-ui/react/internals/types").WithBaseUIEvent<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>>, "className" | "defaultChecked" | "defaultValue" | "style" | "color"> & {
+declare const DropdownMenuSubTrigger: React.ForwardRefExoticComponent<Omit<import("@base-ui/react/internals/types").NativeButtonProps & Omit<import("@base-ui/react/internals/types").WithBaseUIEvent<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>>, "className" | "color" | "defaultChecked" | "defaultValue" | "style"> & {
     className?: string | ((state: import("@base-ui/react").PopoverTriggerState) => string | undefined) | undefined;
-    render?: React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | import("@base-ui/react").ComponentRenderFn<import("@base-ui/react").HTMLProps, import("@base-ui/react").PopoverTriggerState> | undefined;
+    render?: import("@base-ui/react").ComponentRenderFn<import("@base-ui/react").HTMLProps, import("@base-ui/react").PopoverTriggerState> | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | undefined;
     style?: React.CSSProperties | ((state: import("@base-ui/react").PopoverTriggerState) => React.CSSProperties | undefined) | undefined;
 } & {
     nativeButton?: boolean | undefined;
