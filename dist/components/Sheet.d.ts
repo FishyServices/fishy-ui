@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Dialog as BaseDialog } from "@base-ui/react";
 import { type VariantProps } from "class-variance-authority";
-declare const Sheet: typeof BaseDialog.Root;
+declare const Sheet: <Payload>(props: BaseDialog.Root.Props<Payload>) => React.JSX.Element;
 declare const SheetTrigger: BaseDialog.Trigger;
 declare const SheetClose: React.ForwardRefExoticComponent<Omit<import("@base-ui/react").DialogCloseProps, "ref"> & React.RefAttributes<HTMLButtonElement>>;
 declare const SheetPortal: React.ForwardRefExoticComponent<Omit<import("@base-ui/react").DialogPortalProps, "ref"> & React.RefAttributes<HTMLDivElement>>;

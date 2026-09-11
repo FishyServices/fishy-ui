@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Dialog as BaseDialog } from "@base-ui/react";
-declare const Dialog: typeof BaseDialog.Root;
+declare const Dialog: <Payload>(props: BaseDialog.Root.Props<Payload>) => React.JSX.Element;
 declare const DialogTrigger: BaseDialog.Trigger;
 declare const DialogPortal: React.ForwardRefExoticComponent<Omit<import("@base-ui/react").DialogPortalProps, "ref"> & React.RefAttributes<HTMLDivElement>>;
 declare const DialogClose: React.ForwardRefExoticComponent<Omit<import("@base-ui/react").DialogCloseProps, "ref"> & React.RefAttributes<HTMLButtonElement>>;
