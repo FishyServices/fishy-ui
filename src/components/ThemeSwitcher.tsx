@@ -47,7 +47,7 @@ function ThemeSwitcher({
             role="radio"
             aria-checked={active}
             className={cn(
-              "inline-flex min-w-[6.75rem] items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors",
+              "inline-flex min-w-27 items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors",
               active
                 ? "bg-background text-foreground shadow-sm"
                 : "text-muted-foreground hover:bg-background/70 hover:text-foreground"

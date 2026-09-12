@@ -63,7 +63,7 @@ const CommandInput = React.forwardRef(({ className, onChange, ...props }, ref) =
                 }, ...props })] }));
 });
 CommandInput.displayName = "CommandInput";
-const CommandList = React.forwardRef(({ className, ...props }, ref) => (_jsx("div", { ref: ref, className: cn("max-h-[300px] overflow-y-auto overflow-x-hidden", className), ...props })));
+const CommandList = React.forwardRef(({ className, ...props }, ref) => (_jsx("div", { ref: ref, className: cn("max-h-75 overflow-y-auto overflow-x-hidden", className), ...props })));
 CommandList.displayName = "CommandList";
 const CommandEmpty = React.forwardRef(({ className, ...props }, ref) => {
     const { totalCount, visibleCount } = useCommandContext();

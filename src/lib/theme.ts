@@ -18,8 +18,11 @@ export const FISHY_THEME_DEFAULTS: Required<Omit<ApplyFishyThemeOptions, "root">
   accent: "indigo"
 };
 
-export function applyFishyTheme(options: ApplyFishyThemeOptions = {}) {
-  const root = options.root ?? document.documentElement;
+export function applyFishyTheme(options: ApplyFishyThemeOptions = {}): void {
+  const root =
+    options.root ?? (typeof document === "undefined" ? undefined : document.documentElement);
+  if (!root) return;
+
   const mode = options.mode ?? FISHY_THEME_DEFAULTS.mode;
   const density = options.density ?? FISHY_THEME_DEFAULTS.density;
   const radius = options.radius ?? FISHY_THEME_DEFAULTS.radius;

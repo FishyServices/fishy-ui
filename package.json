@@ -1,7 +1,7 @@
 {
   "name": "@fishy/ui",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -11,8 +11,16 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./styles.css": "./dist/styles.css"
+    "./styles.css": "./dist/styles.css",
+    "./theme.css": "./src/index.css"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": [
+    "./dist/styles.css"
+  ],
   "scripts": {
     "build": "tsc && tailwindcss -i src/index.css -o dist/styles.css",
     "dev": "concurrently \"tsc -w\" \"tailwindcss -i src/index.css -o dist/styles.css --watch\"",
@@ -26,7 +34,13 @@
     "concurrently": "10.0.5",
     "tailwindcss": "4.3.3",
     "typescript": "~7.0.2",
-    "prettier": "3.9.6"
+    "prettier": "3.9.6",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
   },
   "dependencies": {
     "@base-ui/react": "1.8.0",

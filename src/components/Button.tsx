@@ -33,35 +33,26 @@ const buttonVariants = cva(
 );
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
+  extends
+    Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "className">,
+    VariantProps<typeof buttonVariants> {
   asChild?: boolean;
+  className?: string;
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
-    if (asChild && React.isValidElement(props.children)) {
-      return React.cloneElement(props.children, {
-        ...props,
-        className: cn(
-          buttonVariants({ variant, size, className }),
-          (props.children as any).props?.className
-        ),
-        ref: (node: any) => {
-          if (typeof ref === "function") ref(node);
-          else if (ref) ref.current = node;
-          const childRef = (props.children as any).ref;
-          if (typeof childRef === "function") childRef(node);
-          else if (childRef) childRef.current = node;
-        }
-      } as any);
-    }
+const Button = React.forwardRef<HTMLElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, children, ...props }, ref) => {
+    const classes = cn(buttonVariants({ variant, size, className }));
 
     return (
       <BaseButton
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={classes}
         ref={ref}
+        render={asChild && React.isValidElement(children) ? children : undefined}
         {...props}
-      />
+      >
+        {children}
+      </BaseButton>
     );
   }
 );
