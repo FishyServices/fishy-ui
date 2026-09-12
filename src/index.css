@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @source "./**/*.{ts,tsx}";
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 @theme {
   --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
@@ -315,6 +316,13 @@
 }
 
 @layer components {
+  .fishy-surface {
+    border: 1px solid color-mix(in oklab, var(--color-border) 78%, transparent);
+    border-radius: var(--radius-lg);
+    background: var(--color-card);
+    color: var(--color-card-foreground);
+  }
+
   .fishy-glass {
     border: 1px solid color-mix(in oklab, var(--color-border) 72%, transparent);
     background: color-mix(in oklab, var(--color-card) 86%, transparent);
@@ -344,6 +352,24 @@
   .fishy-focus-ring:focus-visible {
     outline: var(--fishy-focus-width) solid var(--color-ring);
     outline-offset: 3px;
+  }
+
+  .fishy-interactive {
+    transition:
+      color 160ms ease,
+      background-color 160ms ease,
+      border-color 160ms ease,
+      box-shadow 160ms ease,
+      transform 160ms ease;
+  }
+
+  .fishy-interactive:hover {
+    border-color: color-mix(in oklab, var(--color-primary) 32%, var(--color-border));
+    background: color-mix(in oklab, var(--color-accent) 55%, transparent);
+  }
+
+  .fishy-interactive:active {
+    transform: translateY(1px);
   }
 
   .fishy-noise {
@@ -464,6 +490,18 @@
   }
   .fishy-safe-x {
     padding-inline: max(1rem, env(safe-area-inset-left)) max(1rem, env(safe-area-inset-right));
+  }
+
+  .fishy-control {
+    min-height: var(--fishy-control-height);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
   }
 }
 
