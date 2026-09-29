@@ -27,9 +27,9 @@ const buttonVariants = cva("inline-flex items-center justify-center gap-2 whites
         size: "default"
     }
 });
-const Button = React.forwardRef(({ className, variant, size, asChild = false, children, ...props }, ref) => {
+const Button = React.forwardRef(({ className, variant, size, asChild = false, type = "button", children, ...props }, ref) => {
     const classes = cn(buttonVariants({ variant, size, className }));
-    return (_jsx(BaseButton, { className: classes, ref: ref, render: asChild && React.isValidElement(children) ? children : undefined, ...props, children: children }));
+    return (_jsx(BaseButton, { className: classes, ref: ref, render: asChild && React.isValidElement(children) ? children : undefined, type: type, ...props, children: children }));
 });
 Button.displayName = "Button";
 export { Button, buttonVariants };

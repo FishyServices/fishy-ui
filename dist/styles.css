@@ -1118,6 +1118,16 @@
       --tw-ring-color: color-mix(in oklab, var(--color-destructive) 20%, transparent);
     }
   }
+  .data-active\:bg-background[data-active] {
+    background-color: var(--color-background);
+  }
+  .data-active\:text-foreground[data-active] {
+    color: var(--color-foreground);
+  }
+  .data-active\:shadow[data-active] {
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
   .data-checked\:translate-x-4[data-checked] {
     --tw-translate-x: calc(var(--spacing) * 4);
     translate: var(--tw-translate-x) var(--tw-translate-y);
@@ -1153,16 +1163,6 @@
   }
   .data-placeholder\:text-muted-foreground[data-placeholder] {
     color: var(--color-muted-foreground);
-  }
-  .data-selected\:bg-background[data-selected] {
-    background-color: var(--color-background);
-  }
-  .data-selected\:text-foreground[data-selected] {
-    color: var(--color-foreground);
-  }
-  .data-selected\:shadow[data-selected] {
-    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
-    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .data-unchecked\:translate-x-0[data-unchecked] {
     --tw-translate-x: 0px;
