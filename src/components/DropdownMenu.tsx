@@ -88,7 +88,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
   <BasePopover.Trigger
     ref={ref}
     className={cn(
-      "flex min-h-8 cursor-default select-none items-center rounded-sm px-2 py-1 text-[13px] outline-none transition-colors hover:bg-accent hover:text-accent-foreground",
+      "flex min-h-7 cursor-default select-none items-center rounded-sm px-2 py-0.5 text-[13px] outline-none transition-colors hover:bg-accent hover:text-accent-foreground",
       inset && "pl-8",
       className
     )}
@@ -131,7 +131,7 @@ const DropdownMenuItem = React.forwardRef<HTMLButtonElement, DropdownMenuItemPro
         type={type}
         disabled={disabled}
         className={cn(
-          "relative flex min-h-8 w-full cursor-default select-none items-center rounded-sm px-2 py-1 text-[13px] outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground disabled:pointer-events-none disabled:opacity-50",
+          "relative flex min-h-7 w-full cursor-default select-none items-center rounded-sm px-2 py-0.5 text-[13px] outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground disabled:pointer-events-none disabled:opacity-50",
           inset && "pl-8",
           className
         )}
