@@ -3,28 +3,29 @@
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 @theme {
-  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Instrument Sans", "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Avenir Next", "IBM Plex Sans", ui-sans-serif, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  --color-background: oklch(0.15 0.012 240);
-  --color-foreground: oklch(0.95 0.008 240);
-  --color-card: oklch(0.19 0.014 240);
-  --color-card-foreground: oklch(0.95 0.008 240);
-  --color-popover: oklch(0.205 0.014 240);
-  --color-popover-foreground: oklch(0.95 0.008 240);
-  --color-primary: oklch(0.68 0.13 190);
-  --color-primary-foreground: oklch(0.14 0.012 240);
-  --color-secondary: oklch(0.24 0.014 240);
-  --color-secondary-foreground: oklch(0.94 0.008 240);
-  --color-muted: oklch(0.23 0.012 240);
-  --color-muted-foreground: oklch(0.72 0.014 240);
-  --color-accent: oklch(0.28 0.035 205);
-  --color-accent-foreground: oklch(0.96 0.008 240);
+  --color-background: oklch(0.16 0.018 205);
+  --color-foreground: oklch(0.96 0.012 165);
+  --color-card: oklch(0.205 0.024 205);
+  --color-card-foreground: oklch(0.96 0.012 165);
+  --color-popover: oklch(0.235 0.025 205);
+  --color-popover-foreground: oklch(0.96 0.012 165);
+  --color-primary: oklch(0.8 0.12 175);
+  --color-primary-foreground: oklch(0.18 0.025 205);
+  --color-secondary: oklch(0.255 0.025 205);
+  --color-secondary-foreground: oklch(0.96 0.012 165);
+  --color-muted: oklch(0.255 0.02 205);
+  --color-muted-foreground: oklch(0.75 0.025 180);
+  --color-accent: oklch(0.31 0.045 190);
+  --color-accent-foreground: oklch(0.97 0.01 165);
   --color-destructive: oklch(0.62 0.18 25);
   --color-destructive-foreground: oklch(0.98 0.005 240);
-  --color-border: oklch(0.31 0.018 240);
-  --color-input: oklch(0.28 0.016 240);
-  --color-ring: oklch(0.68 0.13 190);
+  --color-border: oklch(0.37 0.026 200);
+  --color-input: oklch(0.3 0.024 205);
+  --color-ring: oklch(0.8 0.12 175);
 
   --radius-sm: var(--radius-sm-dynamic);
   --radius-md: var(--radius-md-dynamic);
@@ -519,6 +520,36 @@
 
 body:has([data-content-modal="true"]) [data-base-ui-inert][role="presentation"] {
   backdrop-filter: none !important;
+}
+
+@layer components {
+  .fishy-surface,
+  .fishy-card {
+    border-color: color-mix(in oklab, var(--color-border) 68%, transparent);
+    border-radius: var(--radius-lg);
+    box-shadow: none;
+  }
+
+  .fishy-glass {
+    border-color: color-mix(in oklab, var(--color-border) 62%, transparent);
+    background: color-mix(in oklab, var(--color-card) 94%, transparent);
+    box-shadow: none;
+    backdrop-filter: blur(16px);
+  }
+
+  .fishy-card:hover {
+    border-color: color-mix(in oklab, var(--color-primary) 38%, var(--color-border));
+  }
+
+  [data-slot="badge"] {
+    border-radius: var(--radius-sm);
+  }
+
+  [role="menuitem"],
+  [role="option"],
+  [role="tab"] {
+    min-height: 2.75rem;
+  }
 }
 
 @media (max-width: 640px) {

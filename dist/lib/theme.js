@@ -2,7 +2,7 @@ export const FISHY_THEME_DEFAULTS = {
     mode: "dark",
     density: "comfortable",
     radius: "rounded",
-    accent: "indigo"
+    accent: "cyan"
 };
 export function applyFishyTheme(options = {}) {
     const root = options.root ?? (typeof document === "undefined" ? undefined : document.documentElement);

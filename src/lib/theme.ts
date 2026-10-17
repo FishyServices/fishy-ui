@@ -15,7 +15,7 @@ export const FISHY_THEME_DEFAULTS: Required<Omit<ApplyFishyThemeOptions, "root">
   mode: "dark",
   density: "comfortable",
   radius: "rounded",
-  accent: "indigo"
+  accent: "cyan"
 };
 
 export function applyFishyTheme(options: ApplyFishyThemeOptions = {}): void {
