@@ -65,7 +65,7 @@ const DropdownMenuPortal = BasePopover.Portal;
 const DropdownMenuSub = DropdownMenu;
 
 const dropdownContentClass =
-  "z-menu min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md outline-none transform-gpu will-change-[transform,opacity] data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2";
+  "z-menu min-w-[8rem] overflow-hidden rounded-md border bg-popover p-0.5 text-popover-foreground shadow-md outline-none transform-gpu will-change-[transform,opacity] data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2";
 
 const DropdownMenuContent = React.forwardRef<
   HTMLDivElement,
@@ -88,7 +88,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
   <BasePopover.Trigger
     ref={ref}
     className={cn(
-      "flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground",
+      "flex min-h-8 cursor-default select-none items-center rounded-sm px-2 py-1 text-[13px] outline-none transition-colors hover:bg-accent hover:text-accent-foreground",
       inset && "pl-8",
       className
     )}
@@ -131,7 +131,7 @@ const DropdownMenuItem = React.forwardRef<HTMLButtonElement, DropdownMenuItemPro
         type={type}
         disabled={disabled}
         className={cn(
-          "relative flex w-full cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground disabled:pointer-events-none disabled:opacity-50",
+          "relative flex min-h-8 w-full cursor-default select-none items-center rounded-sm px-2 py-1 text-[13px] outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground disabled:pointer-events-none disabled:opacity-50",
           inset && "pl-8",
           className
         )}
@@ -199,7 +199,7 @@ const DropdownMenuLabel = React.forwardRef<
 >(({ className, inset, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("px-2 py-1.5 text-sm font-semibold", inset && "pl-8", className)}
+    className={cn("px-2 py-1 text-xs font-semibold", inset && "pl-8", className)}
     {...props}
   />
 ));
