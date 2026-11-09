@@ -248,6 +248,9 @@
   .z-50 {
     z-index: 50;
   }
+  .z-\[var\(--z-floating\,1020\)\] {
+    z-index: var(--z-floating,1020);
+  }
   .order-first {
     order: -9999;
   }
