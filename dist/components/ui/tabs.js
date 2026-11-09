@@ -10,12 +10,12 @@ const tabsListVariants = cva("group/tabs-list inline-flex w-fit items-center jus
     variants: {
         variant: {
             default: "bg-muted",
-            line: "gap-1 bg-transparent",
-        },
+            line: "gap-1 bg-transparent"
+        }
     },
     defaultVariants: {
-        variant: "default",
-    },
+        variant: "default"
+    }
 });
 function TabsList({ className, variant = "default", ...props }) {
     return (_jsx(TabsPrimitive.List, { "data-slot": "tabs-list", "data-variant": variant, className: cn(tabsListVariants({ variant }), className), ...props }));

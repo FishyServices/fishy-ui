@@ -7,4 +7,4 @@ declare function TableRow({ className, ...props }: React.ComponentProps<"tr">): 
 declare function TableHead({ className, ...props }: React.ComponentProps<"th">): React.JSX.Element;
 declare function TableCell({ className, ...props }: React.ComponentProps<"td">): React.JSX.Element;
 declare function TableCaption({ className, ...props }: React.ComponentProps<"caption">): React.JSX.Element;
-export { Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell, TableCaption, };
+export { Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell, TableCaption };

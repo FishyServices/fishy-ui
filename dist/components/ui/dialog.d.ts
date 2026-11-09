@@ -14,4 +14,4 @@ declare function DialogFooter({ className, showCloseButton, children, ...props }
 }): React.JSX.Element;
 declare function DialogTitle({ className, ...props }: DialogPrimitive.Title.Props): React.JSX.Element;
 declare function DialogDescription({ className, ...props }: DialogPrimitive.Description.Props): React.JSX.Element;
-export { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogOverlay, DialogPortal, DialogTitle, DialogTrigger, };
+export { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogOverlay, DialogPortal, DialogTitle, DialogTrigger };

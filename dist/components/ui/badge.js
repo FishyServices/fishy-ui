@@ -10,24 +10,24 @@ const badgeVariants = cva("group/badge inline-flex h-5 w-fit shrink-0 items-cent
             destructive: "bg-destructive/10 text-destructive focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:focus-visible:ring-destructive/40 [a]:hover:bg-destructive/20",
             outline: "border-border text-foreground [a]:hover:bg-muted [a]:hover:text-muted-foreground",
             ghost: "hover:bg-muted hover:text-muted-foreground dark:hover:bg-muted/50",
-            link: "text-primary underline-offset-4 hover:underline",
-        },
+            link: "text-primary underline-offset-4 hover:underline"
+        }
     },
     defaultVariants: {
-        variant: "default",
-    },
+        variant: "default"
+    }
 });
 function Badge({ className, variant = "default", render, ...props }) {
     return useRender({
         defaultTagName: "span",
         props: mergeProps({
-            className: cn(badgeVariants({ variant }), className),
+            className: cn(badgeVariants({ variant }), className)
         }, props),
         render,
         state: {
             slot: "badge",
-            variant,
-        },
+            variant
+        }
     });
 }
 export { Badge, badgeVariants };

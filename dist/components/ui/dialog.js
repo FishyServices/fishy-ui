@@ -1,7 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
 import { cn } from "cn";
-import { Button } from "@/components/ui/button";
+import { Button } from "./button";
 import { XIcon } from "lucide-react";
 function Dialog({ ...props }) {
     return _jsx(DialogPrimitive.Root, { "data-slot": "dialog", ...props });
@@ -33,4 +33,4 @@ function DialogTitle({ className, ...props }) {
 function DialogDescription({ className, ...props }) {
     return (_jsx(DialogPrimitive.Description, { "data-slot": "dialog-description", className: cn("text-xs/relaxed text-muted-foreground *:[a]:underline *:[a]:underline-offset-3 *:[a]:hover:text-foreground", className), ...props }));
 }
-export { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogOverlay, DialogPortal, DialogTitle, DialogTrigger, };
+export { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogOverlay, DialogPortal, DialogTitle, DialogTrigger };

@@ -11,4 +11,4 @@ declare function SheetHeader({ className, ...props }: React.ComponentProps<"div"
 declare function SheetFooter({ className, ...props }: React.ComponentProps<"div">): React.JSX.Element;
 declare function SheetTitle({ className, ...props }: SheetPrimitive.Title.Props): React.JSX.Element;
 declare function SheetDescription({ className, ...props }: SheetPrimitive.Description.Props): React.JSX.Element;
-export { Sheet, SheetTrigger, SheetClose, SheetContent, SheetHeader, SheetFooter, SheetTitle, SheetDescription, };
+export { Sheet, SheetTrigger, SheetClose, SheetContent, SheetHeader, SheetFooter, SheetTitle, SheetDescription };

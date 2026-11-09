@@ -4,7 +4,7 @@ function Table({ className, ...props }) {
     return (_jsx("div", { "data-slot": "table-container", className: "relative w-full overflow-x-auto", children: _jsx("table", { "data-slot": "table", className: cn("w-full caption-bottom text-xs", className), ...props }) }));
 }
 function TableHeader({ className, ...props }) {
-    return (_jsx("thead", { "data-slot": "table-header", className: cn("[&_tr]:border-b", className), ...props }));
+    return _jsx("thead", { "data-slot": "table-header", className: cn("[&_tr]:border-b", className), ...props });
 }
 function TableBody({ className, ...props }) {
     return (_jsx("tbody", { "data-slot": "table-body", className: cn("[&_tr:last-child]:border-0", className), ...props }));
@@ -24,4 +24,4 @@ function TableCell({ className, ...props }) {
 function TableCaption({ className, ...props }) {
     return (_jsx("caption", { "data-slot": "table-caption", className: cn("mt-4 text-xs text-muted-foreground", className), ...props }));
 }
-export { Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell, TableCaption, };
+export { Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell, TableCaption };

@@ -2,7 +2,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";
 import { cn } from "cn";
 function TooltipProvider({ delay = 0, ...props }) {
-    return (_jsx(TooltipPrimitive.Provider, { "data-slot": "tooltip-provider", delay: delay, ...props }));
+    return _jsx(TooltipPrimitive.Provider, { "data-slot": "tooltip-provider", delay: delay, ...props });
 }
 function Tooltip({ ...props }) {
     return _jsx(TooltipPrimitive.Root, { "data-slot": "tooltip", ...props });

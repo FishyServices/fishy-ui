@@ -2,8 +2,8 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Command as CommandPrimitive } from "cmdk";
 import { cn } from "cn";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, } from "@/components/ui/dialog";
-import { InputGroup, InputGroupAddon, } from "@/components/ui/input-group";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "./dialog";
+import { InputGroup, InputGroupAddon } from "./input-group";
 import { SearchIcon, CheckIcon } from "lucide-react";
 function Command({ className, ...props }) {
     return (_jsx(CommandPrimitive, { "data-slot": "command", className: cn("flex size-full flex-col overflow-hidden rounded-none bg-popover text-popover-foreground", className), ...props }));
@@ -32,4 +32,4 @@ function CommandItem({ className, children, ...props }) {
 function CommandShortcut({ className, ...props }) {
     return (_jsx("span", { "data-slot": "command-shortcut", className: cn("ml-auto text-xs tracking-widest text-muted-foreground group-data-selected/command-item:text-foreground", className), ...props }));
 }
-export { Command, CommandDialog, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem, CommandShortcut, CommandSeparator, };
+export { Command, CommandDialog, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem, CommandShortcut, CommandSeparator };

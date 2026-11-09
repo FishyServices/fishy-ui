@@ -1,6 +1,6 @@
 import * as React from "react";
 import { type VariantProps } from "class-variance-authority";
-import { Button } from "@/components/ui/button";
+import { Button } from "./button";
 declare function InputGroup({ className, ...props }: React.ComponentProps<"div">): React.JSX.Element;
 declare const inputGroupAddonVariants: (props?: ({
     align?: "block-end" | "block-start" | "inline-end" | "inline-start" | null | undefined;
@@ -15,4 +15,4 @@ declare function InputGroupButton({ className, type, variant, size, ...props }: 
 declare function InputGroupText({ className, ...props }: React.ComponentProps<"span">): React.JSX.Element;
 declare function InputGroupInput({ className, ...props }: React.ComponentProps<"input">): React.JSX.Element;
 declare function InputGroupTextarea({ className, ...props }: React.ComponentProps<"textarea">): React.JSX.Element;
-export { InputGroup, InputGroupAddon, InputGroupButton, InputGroupText, InputGroupInput, InputGroupTextarea, };
+export { InputGroup, InputGroupAddon, InputGroupButton, InputGroupText, InputGroupInput, InputGroupTextarea };

@@ -5,12 +5,12 @@ const alertVariants = cva("group/alert relative grid w-full gap-0.5 rounded-none
     variants: {
         variant: {
             default: "bg-card text-card-foreground",
-            destructive: "bg-card text-destructive *:data-[slot=alert-description]:text-destructive/90 *:[svg]:text-current",
-        },
+            destructive: "bg-card text-destructive *:data-[slot=alert-description]:text-destructive/90 *:[svg]:text-current"
+        }
     },
     defaultVariants: {
-        variant: "default",
-    },
+        variant: "default"
+    }
 });
 function Alert({ className, variant, ...props }) {
     return (_jsx("div", { "data-slot": "alert", role: "alert", className: cn(alertVariants({ variant }), className), ...props }));

@@ -21,4 +21,4 @@ function CardContent({ className, ...props }) {
 function CardFooter({ className, ...props }) {
     return (_jsx("div", { "data-slot": "card-footer", className: cn("flex items-center rounded-none border-t p-(--card-spacing)", className), ...props }));
 }
-export { Card, CardHeader, CardFooter, CardTitle, CardAction, CardDescription, CardContent, };
+export { Card, CardHeader, CardFooter, CardTitle, CardAction, CardDescription, CardContent };

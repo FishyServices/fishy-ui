@@ -20,4 +20,4 @@ function PopoverTitle({ className, ...props }) {
 function PopoverDescription({ className, ...props }) {
     return (_jsx(PopoverPrimitive.Description, { "data-slot": "popover-description", className: cn("text-xs/relaxed text-muted-foreground", className), ...props }));
 }
-export { Popover, PopoverContent, PopoverDescription, PopoverHeader, PopoverTitle, PopoverTrigger, };
+export { Popover, PopoverContent, PopoverDescription, PopoverHeader, PopoverTitle, PopoverTrigger };

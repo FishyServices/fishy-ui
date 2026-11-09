@@ -6,4 +6,4 @@ declare function PopoverContent({ className, align, alignOffset, side, sideOffse
 declare function PopoverHeader({ className, ...props }: React.ComponentProps<"div">): React.JSX.Element;
 declare function PopoverTitle({ className, ...props }: PopoverPrimitive.Title.Props): React.JSX.Element;
 declare function PopoverDescription({ className, ...props }: PopoverPrimitive.Description.Props): React.JSX.Element;
-export { Popover, PopoverContent, PopoverDescription, PopoverHeader, PopoverTitle, PopoverTrigger, };
+export { Popover, PopoverContent, PopoverDescription, PopoverHeader, PopoverTitle, PopoverTrigger };

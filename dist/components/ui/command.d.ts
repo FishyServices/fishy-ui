@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Command as CommandPrimitive } from "cmdk";
-import { Dialog } from "@/components/ui/dialog";
+import { Dialog } from "./dialog";
 declare function Command({ className, ...props }: React.ComponentProps<typeof CommandPrimitive>): React.JSX.Element;
 declare function CommandDialog({ title, description, children, className, showCloseButton, ...props }: Omit<React.ComponentProps<typeof Dialog>, "children"> & {
     title?: string;
@@ -16,4 +16,4 @@ declare function CommandGroup({ className, ...props }: React.ComponentProps<type
 declare function CommandSeparator({ className, ...props }: React.ComponentProps<typeof CommandPrimitive.Separator>): React.JSX.Element;
 declare function CommandItem({ className, children, ...props }: React.ComponentProps<typeof CommandPrimitive.Item>): React.JSX.Element;
 declare function CommandShortcut({ className, ...props }: React.ComponentProps<"span">): React.JSX.Element;
-export { Command, CommandDialog, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem, CommandShortcut, CommandSeparator, };
+export { Command, CommandDialog, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem, CommandShortcut, CommandSeparator };

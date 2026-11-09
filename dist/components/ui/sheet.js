@@ -2,7 +2,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Dialog as SheetPrimitive } from "@base-ui/react/dialog";
 import { cn } from "cn";
-import { Button } from "@/components/ui/button";
+import { Button } from "./button";
 import { XIcon } from "lucide-react";
 function Sheet({ ...props }) {
     return _jsx(SheetPrimitive.Root, { "data-slot": "sheet", ...props });
@@ -34,4 +34,4 @@ function SheetTitle({ className, ...props }) {
 function SheetDescription({ className, ...props }) {
     return (_jsx(SheetPrimitive.Description, { "data-slot": "sheet-description", className: cn("text-xs/relaxed text-muted-foreground", className), ...props }));
 }
-export { Sheet, SheetTrigger, SheetClose, SheetContent, SheetHeader, SheetFooter, SheetTitle, SheetDescription, };
+export { Sheet, SheetTrigger, SheetClose, SheetContent, SheetHeader, SheetFooter, SheetTitle, SheetDescription };
